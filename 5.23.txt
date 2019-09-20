@@ -1,0 +1,14 @@
+一.遇到拨号服务器无法拨号，客服发送新的用户名和密码，相对应的要修改下面三处的用户名和密码：
+1.打开计算机——c盘——spider-2.0——classses——worker-config.properties其中的adsl.user和adsl.password
+2.adsl.bat——右键点击编辑，文件中@rasdial "宽带连接“ "用户名“ ”密码“
+3.数据库spider_os中line表，其中ADSL区域对应的user_name和user_password
+二.爬虫程序终止，表中的化学品没有处理完整，做出以下相应处理：
+1，清空temp表，将未爬取的任务添加进temp表，
+2，将name对应的值，最后一个单词全部改成temp
+3，删去既有的任务，将SELECT * FROM spider_os.`query_data` where name='query_chem99_temp';语句放入查询中查询
+4，将添加进temp中的任务复制，放进查询中一起查询完成之后，在执行第三步
+5，执行12731机器任务
+三.查看任务命令
+cat ~/.bashrc
+四.清理磁盘
+C:\Users\Administrator\AppData\Local\Temp
